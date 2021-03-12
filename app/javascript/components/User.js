@@ -4,7 +4,9 @@ const User = ({ user }) => {
   return (
     <>
       <h1>Name: {Last_name}, {first_name}</h1>
-        <hr />
+      <hr />
+        <a href={`/users/${id}/appointments`}>View Appointments</a>
+        <br />
         <a href={`/users/${id}`} data-method="delete">Delete User</a>
         <br />
         <a href={'/users'}> Back </a>
