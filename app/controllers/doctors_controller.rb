@@ -1,10 +1,41 @@
 class DoctorsController < ApplicationController
+  before_action :set_doctor, except: [ :index, :new, :create ]
   def index
+    @doctors = Doctor.all
+    render component: "Doctors", props: { doctors: @doctors }
+  end
+
+  def create
+    @doctor = Doctor.new(doctor_params)
+    if @doctor.save
+      redirect_to @doctor
+    else
+      render component: "DoctorNew", props: { course: @course }
+    end
   end
 
   def show
+    @doctor = Doctor.find(params[:id])
+    render component: "Doctor", props: { doctor: @doctor }
   end
 
   def new
+    @doctor = Doctor.new
+    render component: "DoctorNew", props: { doctor: @doctor }
   end
+
+  def destroy
+    @doctor.destroy
+    redirect_to doctors_path
+  end
+
+  private
+    def set_doctor
+      @doctor = Doctor.find(params[:id])
+    end
+
+    def doctor_params
+      params.require(:doctor).permit(:name)
+    end
+
 end
