@@ -24,6 +24,18 @@ class DoctorsController < ApplicationController
     render component: "DoctorNew", props: { doctor: @doctor }
   end
 
+  def edit
+    render component: "DoctorEdit", props: { doctor: @doctor }
+  end
+
+  def update
+    if @doctor.update(doctor_params)
+      redirect_to @doctor
+    else
+      render component: "DoctorEdit", props: { doctor: @doctor }
+    end
+  end
+
   def destroy
     @doctor.destroy
     redirect_to doctors_path
