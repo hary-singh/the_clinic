@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'users#index'
+  # root 'users#index'
+  root 'landing_pages#show'
 
   resources :users do 
     resources :appointments
