@@ -7,6 +7,8 @@ const User = ({ user }) => {
       <hr />
         <a href={`/users/${id}/appointments`}>View Appointments</a>
         <br />
+        <a href={`/users/${id}/edit`}>Edit User</a>
+        <br />
         <a href={`/users/${id}`} data-method="delete">Delete User</a>
         <br />
         <a href={'/users'}> Back </a>
