@@ -5,8 +5,11 @@ const Doctor = ({ doctor }) => {
   return (
     <>
       <h1>Doctor: {name}</h1>
+      <a href={`/doctors/${id}/edit`}>Edit your Info</a><br/>
+      <a href={`/doctors/${id}`} data-method="delete">Delete your account</a>
       <hr />
-      <a href={`/doctors/${id}/appointments`}>Check your appointments</a>
+      <a href={`/doctors/${id}/appointments`}>Check your appointments</a><br/>
+      <a href={`/doctors`}>Go Back</a>
     </>
   )
 }
