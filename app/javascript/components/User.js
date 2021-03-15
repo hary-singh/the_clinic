@@ -5,10 +5,10 @@ const User = ({ user }) => {
     <>
       <h1>Name: {Last_name}, {first_name}</h1>
       <a href={`/users/${id}/edit`}>Edit your Info</a><br />
-      <a href={`/users/${id}`} data-method="delete">Delete your account</a>
-      <hr />
       <a href={`/users/${id}/appointments`}>Check your Appointments</a><br />
-      <a href={'/users'}>Go Back </a>
+      <hr />
+      <a href={`/users/${id}`} data-method="delete" class="btn waves-effect waves-light">Delete your account</a><br />
+      <a href={'/users'} class="btn waves-effect waves-light">Go Back </a>
      
     </>
   )

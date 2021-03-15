@@ -13,7 +13,7 @@ const Users = ({ users }) => {
         </div>
       ))}
       <br/><hr/>
-      <a href={`/`}>Back</a>
+      <a href={`/`} class="btn waves-effect waves-light">Go Back</a>
     </>
   )
 }
