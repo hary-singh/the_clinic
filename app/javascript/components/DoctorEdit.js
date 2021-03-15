@@ -14,7 +14,7 @@ const DoctorEdit = ({ doctor }) => {
         defaultValue={defaultName}
         name="doctor[name]"
         />
-      <button type="Submit">Update</button>
+      <button class="btn waves-effect waves-light" type="Submit">Update</button>
       </form>
     </>
   )
