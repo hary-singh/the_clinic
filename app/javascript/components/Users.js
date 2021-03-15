@@ -4,11 +4,14 @@ const Users = ({ users }) => {
   return(
     <>
       <h1>Users</h1>
-      <a href={`/users/new`}>New User</a>
+      <a href={`/users/new`} class="btn waves-effect waves-light">New User</a>
+      <br />
+      <br />
       { users.map( (u) => (
         <div>
           <a href={`/users/${u.id}`}>{u.first_name} {u.Last_name}</a>
         </div>
+        
       ))}
     </>
   )

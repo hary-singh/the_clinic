@@ -21,7 +21,8 @@ const UserEdit = ({ user }) => {
           defaultValue={defaultLName}
           name="user[Last_name]"
         />
-        <button type="submit">Update</button>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Update
+  </button>
       </form>
     </>
   )
