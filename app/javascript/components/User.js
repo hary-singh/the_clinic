@@ -7,7 +7,7 @@ const User = ({ user }) => {
       <a href={`/users/${id}/edit`}>Edit your Info</a><br />
       <a href={`/users/${id}/appointments`}>Check your Appointments</a><br />
       <hr />
-      <a href={`/users/${id}`} data-method="delete" class="btn waves-effect waves-light">Delete your account</a><br />
+      <a href={`/users/${id}`} data-method="delete" class="btn waves-effect waves-light red">Delete your account</a><br />
       <a href={'/users'} class="btn waves-effect waves-light">Go Back </a>
      
     </>
