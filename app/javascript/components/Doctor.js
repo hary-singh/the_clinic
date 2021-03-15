@@ -6,10 +6,10 @@ const Doctor = ({ doctor }) => {
     <>
       <h1>Doctor: {name}</h1>
       <a href={`/doctors/${id}/edit`}>Edit your Info</a><br/>
-      <a href={`/doctors/${id}`} data-method="delete">Delete your account</a>
-      <hr />
       <a href={`/doctors/${id}/appointments`}>Check your appointments</a><br/>
-      <a href={`/doctors`}>Go Back</a>
+      <hr />
+      <a href={`/doctors/${id}`} data-method="delete" class="btn waves-effect waves-light">Delete your account</a><br />
+      <a href={`/doctors`} class="btn waves-effect waves-light">Go Back</a>
     </>
   )
 }
