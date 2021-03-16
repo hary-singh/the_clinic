@@ -1,45 +1,26 @@
-import React from 'react';
-const Appointments = ({ user, doctor,}) =>{
+import React from "react";
 
-    const displayUser = (id) => {
-        let fullName
-        users.map ((u) => {
-            if (u.id === id){
-                fullName = u.first_name + "" + u.last_name
-            }
-        })
-        return fullName
-    }
-
-    return(
-        <>
-        <h1>{doctor.name} Appointments</h1>
-        <a href={'/doctors/${doctor.id/appointments/new'}>Add Appointment</a>
-        <br />
-        <h2> Doctors </h2>
-        { doctors.map( (t) => (
-            <div>
-                <p>{displayUser(t.user_id)}</p>
-                <a href={' /doctors/${doctors.id}/appointments/${t.id}'} data-method="delete">
-                    Delete
-                </a>
-            </div>
+const Appointments = ({ appointments, doctor }) => {
+    const { name, id } = doctor;
+    return (
+      <>
+        <h1>Schedule an appointment for {name}</h1>
+        <a href={`/doctors/${id}/appointments/new`}>Add Appointment</a>
+        {appointments.map((appointment) => (
+          <div key={appointment.id} className="appointment-card">
+            <h3>{appointment.name}</h3>
+            <a href={`/doctors/${doctor.id}/appointments/${appointment.id}`}> view appointment  </a><br/> 
+            <a href={`/departments/${department.id}/appointmentss/${appointment.id}`} data-method="delete"><br/>
+               Delete Appointment
+            </a>
+          </div>
         ))}
-        
-        
-        <h1>{user.name} Appointments</h1>
-        <a href={'/users/${user.id/appointments/new'}>Add Appointment</a>
+        <hr/>
+        <a href={`/doctors/${id}`}>Go Back</a>
         <br />
-        <h2> Users </h2>
-        { Users.map( (t) => (
-            <div>
-                <p>{displayUser(t.user_id)}</p>
-                <a href={' /Users/${Users.id}/appointments/${t.id}'} data-method="delete">
-                    Delete
-                </a>
-            </div>
-        ))}
-        </>
-    )
+        <a href={`/doctors`}>Back To Doctors</a>
+      </>
+    );
 }
+
 export default Appointments;

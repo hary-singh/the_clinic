@@ -1,50 +1,46 @@
 import React from 'react';
 
-const AppointmentNew = ({ doctor, time, user}) => {
-  const { doctor, errors, user, time } = enrollment;
+const AppointmentNew = ({ doctor, appointment, user_id , time}) => {
+  const { doctor, errors, user_id, time } = appointment;
   const defaultDoctor = doctor ? doctor : "";
-  const defaultUser = user ? user : "";
+  const defaultUser = user_id ? user_id : "";
   const defaultTime = time ? time : "";
   return(
     <>
-      <h1>Add Doctor</h1>
+      <h1>Add Appointments</h1>
       { errors && errors }
-      <form action={`/doctor/${doctor.id}/appointments`} method="post">
-        <label for="doctor">Choose a Doctor:</label>
-        <input 
+      <form action={`/doctors/${docotr.id}/appointments`} method="post">
+        <label for="doctor">Who is your Doctor:</label>
+        <select 
           name="appointment[doctor]" 
           id="doctor" 
           defaultValue={defaultDoctor}
-          type = 'text'
-          >
-        </input>
+        >
+        </select>
         <br />
-        <label for="user">What is your name?:</label>
-        <input 
-          name="appointment[user]" 
-          id="user" 
+        <label for="user_id">Whats Your Name:</label>
+        <select 
+          name="appointment[user_id]" 
+          id="user_id" 
           defaultValue={defaultUser}
-          type = "text"
-          >
-        </input>
-        <label for="Time">What time would you like to see the Doctor?</label>
-        <input 
+        >
+         { users.map((u) => (
+           <option value={u.id}>
+             {`${u.first_name} ${u.last_name}`}
+           </option>
+         ))}
+        </select>
+        <label for="time">What time would you like to see the Doctor:</label>
+        <select 
           name="appointment[time]" 
-          id="user" 
+          id="time" 
           defaultValue={defaultTime}
-          type = "text"
-          >
-        </input>
-      { users.map((u) => (
-        <option value={u.id}>
-          {`${u.first_name} ${u.last_name}`}
-        </option>
-          ))}
+        >
+        </select>
         <button type="submit">Submit</button>
       </form>
     </>
   )
 }
-
 
 export default AppointmentNew;
