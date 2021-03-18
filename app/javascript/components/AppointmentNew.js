@@ -1,50 +1,49 @@
 import React from 'react';
 
-const AppointmentNew = ({ doctor, time, user}) => {
-  const { doctor, errors, user, time } = enrollment;
-  const defaultDoctor = doctor ? doctor : "";
-  const defaultUser = user ? user : "";
+const AppointmentNew = ({ doctor, appointment, users }) => {
+  const { time, errors, user_id } = appointment;
   const defaultTime = time ? time : "";
+  const defaultUser = user_id ? user_id : "";
   return(
     <>
-      <h1>Add Doctor</h1>
+      <h1>Add Appointment</h1>
       { errors && errors }
-      <form action={`/doctor/${doctor.id}/appointments`} method="post">
-        <label for="doctor">Choose a Doctor:</label>
-        <input 
-          name="appointment[doctor]" 
-          id="doctor" 
-          defaultValue={defaultDoctor}
-          type = 'text'
-          >
-        </input>
-        <br />
-        <label for="user">What is your name?:</label>
-        <input 
-          name="appointment[user]" 
-          id="user" 
-          defaultValue={defaultUser}
-          type = "text"
-          >
-        </input>
-        <label for="Time">What time would you like to see the Doctor?</label>
-        <input 
+      <form action={`/doctors/${doctor.id}/appointments`} method="post">
+        
+        <label for="time">Choose a Time:</label>
+        <select class="browser-default"
           name="appointment[time]" 
-          id="user" 
+          id="time" 
           defaultValue={defaultTime}
-          type = "text"
-          >
-        </input>
-      { users.map((u) => (
-        <option value={u.id}>
-          {`${u.first_name} ${u.last_name}`}
-        </option>
-          ))}
-        <button type="submit">Submit</button>
+        >
+          <option value="eight">8:00 AM</option>
+          <option value="nine">9:00 AM</option>
+          <option value="ten">10:00 AM</option>
+          <option value="eleven">11:00 AM</option>
+          <option value="one">1:00 PM</option>
+          <option value="two">2:00 PM</option>
+          <option value="four">4:00 PM</option>
+        </select>
+        <br />
+        <label for="user_id">Choose a user:</label>
+        <select class="browser-default"
+          name="appointment[user_id]" 
+          id="user_id" 
+          defaultValue={defaultUser}
+        >
+         { users.map((u) => (
+           <option value={u.id}>
+             {`${u.first_name} ${u.Last_name}`}
+           </option>
+         ))}
+        </select>
+        <br />
+        <br />
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+  </button>
       </form>
     </>
   )
 }
-
 
 export default AppointmentNew;
