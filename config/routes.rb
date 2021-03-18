@@ -1,15 +1,7 @@
 Rails.application.routes.draw do
-
-  # root 'users#index'
-  root 'landing_pages#show'
-
-  resources :users do 
-    resources :appointments
-  end
-  
+root 'landing_pages#show'
+  resources :users
   resources :doctors do
     resources :appointments
   end
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

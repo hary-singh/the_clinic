@@ -1,4 +1,5 @@
 import React from 'react';
+
 const UserNew = ({ user }) => {
   const { first_name, Last_name, errors } = user
   const defaultFName = first_name ? first_name : ""
@@ -20,7 +21,7 @@ const UserNew = ({ user }) => {
           defaultValue={defaultLName}
           name="user[Last_name]"
         />
-        <button class="btn waves-effect waves-light" type="submit" name="action">Update
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
   </button>
       </form>
     </>
